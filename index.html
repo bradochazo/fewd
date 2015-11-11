@@ -3,76 +3,147 @@
   <head>
     <meta charset="utf-8">
     <title>Brad's Awesome HP</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 
     <style media="screen">
 
+    nav {
+      background-color: #303030;
+      margin: 0px 0px 0px 0px;
+      padding: 10px 20px 10px 20px;
+      color: white;
+      border-bottom: 4px solid rgba(255, 225, 25, 1);
+      position: relative;
+    }
+
     h1 {
-      font-size: 88px;
-      font-family: 'Open Sans Condensed', helvetica, sans-serif;
+      display: block;
+      font-family: 'Open Sans', helvetica, sans-serif;
       font-weight: 100;
-      letter-spacing: 15px;
-      margin:72px 0px 30px 0px;
-      text-align: center;
+      letter-spacing: 5px;
+      text-align: left;
 
     }
     img {
       border-radius: 50%;
-      display: block;
-      margin: 0px auto 50px auto;
+      border: 1px solid rgba(255, 255, 255, 1);
+      float: right;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+
     }
 
-    body{
-      max-width: 66%;
-      text-align: center;
-      margin:0px auto;
-      background-color: #303030;
-      color: #ffffff;
+    body {
+      margin: 0px 0px 0px 0px;
+      background-color: rgba(250, 250, 250, 1);
+      font-size: 18px;
+      font-family: 'Open Sans', helvetica, sans-serif;
+      font-weight: 200;
     }
+
+    main {
+      margin: 0 20px;
+    }
+
 
     p {
-      font-size: 28px;
+      font-size: 18px;
       font-family: 'Open Sans Condensed', helvetica, sans-serif;
-      font-weight: 400;
+      font-weight: 200;
       line-height: 36px;
 
     }
 
     a {
-      color: rgba(152, 195, 121, 0.5);
+      color: rgba(53, 87, 160, 1);
     }
 
     ul {
       list-style: none;
-      font-family: 'Open Sans Condensed', helvetica, sans-serif;
+      font-family: 'Open Sans', helvetica, sans-serif;
       font-size: 18px;
       line-height: 26px;
 
     }
-    </body>
+
+    thead {
+
+    }
+
+    td {
+      padding: 10px 20px 10px 20px;
+      text-align: center;
+      margin: 1px 1px 1px 1px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+
+    .leftalign {
+      text-align: left;
+    }
 
     </style>
+
+
+    </body>
+
+
   </head>
+
   <body>
-    <h1>BRAD MU</h1>
 
-    <img src="images/me.jpg" width="200px" height="200px" alt="" />
+    <nav>
+      <h1>BRAD MU</h1>
+      <img src="images/me.jpg" width="60px" height="60px" alt="Brad Mu Headshot" />
+    </nav>
 
-      <p>
-        Freelance UX designer. I like cycling, yoga, climbing, camping and some other <a href="https://www.google.com/search?q=things&oq=things&aqs=chrome..69i57j69i65j0l4.1446j0j4&sourceid=chrome&es_sm=91&ie=UTF-8" target="_blank">things</a>.
-      </p>
+    <main>
 
-      <p>
-        The best bears in order of coolness are:
-      </p>
+      <h2>Weekly Homework Assignments</h2>
+      <table>
+        <thead>
+          <tr>
+          <th>Week</th>
+          <th>Title</th>
+          <th>URL</th>
+          <th>Concepts Learned</th>
+          <th>Issues</th>
 
-      <ul>
-        <li>Speckled bear</li>
-        <li>Polar bear</li>
-        <li>Grizzly bear</li>
-        <li>Black bear</li>
-        <li>Brown bear</li>
-      </ul>
+        </tr>
+
+        <tr>
+          <td >1</td>
+          <td>ACME Corp</td>
+          <td><a href="http://bradochazo.github.io/fewd/homework-week1/">Link</a></td>
+          <td class="leftalign">•Basic HTML/CSS skills<br />•Floats<br/>•Multiple pages</td>
+          <td class="leftalign">•Spacing between irregularly sized list items<br />•Interactive form elements<br/>•Tooltips on form</td>
+        </tr>
+
+        <!--
+        <tr>
+          <td >2</td>
+          <td>Sandi</td>
+          <td>TA</td>
+        </tr>
+
+        <tr>
+          <td >3</td>
+          <td>Yana</td>
+          <td>Student</td>
+        </tr>
+
+        <tr>
+          <td >4</td>
+          <td>Maks</td>
+          <td>Student</td>
+        </tr>
+
+      -->
+
+      </table>
+    </main>
+
+
 
   </body>
 </html>
