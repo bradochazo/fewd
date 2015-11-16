@@ -5,11 +5,14 @@ body {
   font-family: 'Roboto Slab', serif;
   font-size: 20px;
   line-height: 30px;
+  background-color: rgba(40, 40, 40, 1);
+  color: #f0f0f0;
 }
 h1 {
   text-align: center;
   font-size: 40px;
   font-weight: 100;
+  color: #f0f0f0;
 }
 input {
   font-size: inherit;
@@ -18,6 +21,11 @@ input {
   text-align: center;
   font-family: 'Roboto Slab', serif;
   font-weight: 600;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: transparent;
+  color: #f0f0f0;
 
 }
 input[disabled] {
@@ -53,12 +61,13 @@ input[disabled] {
   position: absolute;
   left: 300px;
   top: 80px;
+  width: 200px;
 }
 .circum {
   position: relative;
   height: 200px;
   max-width: 600px;
-  margin: 0 auto 0 auto;
+  margin: 50px auto 200px auto;
 }
 .circle {
   height: 200px;
@@ -66,18 +75,18 @@ input[disabled] {
   border-radius: 50%;
   border: 5px solid #f0f0f0;
   position: absolute;
-  left: 150px;
+  left: 100px;
 }
 .circum-r {
   position: absolute;
-  top: 85px;
-  left: 225px;
+  top: 80px;
+  left: 160px;
   width: 80px;
 }
 .circum-c {
   position: absolute;
-  top: 85px;
-  left: 360px;
+  top: 80px;
+  left: 320px;
   width: 160px;
 }
 .temp-f,
@@ -85,7 +94,8 @@ input[disabled] {
   width: 100px;
   font-family: helvetica, sans-serif;
   font-weight: normal;
+  margin: 10px;
 }
 .temp {
-
+  padding-left: 170px;
 }
