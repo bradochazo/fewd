@@ -8,18 +8,27 @@ body {
   background-color: rgba(40, 40, 40, 1);
   color: rgba(215, 215, 215, 1);;
 }
+
 h1 {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 300;
+  color: rgba(215, 215, 215, 1);;
+  margin-bottom: 125px;
+}
+h2 {
   text-align: center;
   font-size: 40px;
   font-weight: 100;
   color: #f0f0f0;
 }
 input {
-  font-size: inherit;
+  font-size: 24px;
   line-height: inherit;
   padding: 5px;
   text-align: center;
   font-family: 'Roboto Slab', serif;
+  font-style: italic;
   font-weight: 600;
   border-top: none;
   border-right: none;
@@ -92,15 +101,16 @@ hr {
 }
 .circum-r {
   position: absolute;
-  top: 80px;
-  left: 160px;
-  width: 80px;
+  top: 75px;
+  left: 150px;
+  width: 100px;
 }
 .circum-c {
   position: absolute;
-  top: 80px;
+  top: 75px;
   left: 320px;
-  width: 160px;
+  width: 180px;
+  text-align: left;
 }
 .temp-f,
 .temp-c {
@@ -111,5 +121,5 @@ hr {
 
 }
 .temp {
-  padding-left: 170px;
+  padding-left: 165px;
 }
