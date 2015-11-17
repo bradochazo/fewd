@@ -6,7 +6,7 @@ body {
   font-size: 20px;
   line-height: 30px;
   background-color: rgba(40, 40, 40, 1);
-  color: #f0f0f0;
+  color: rgba(215, 215, 215, 1);;
 }
 h1 {
   text-align: center;
@@ -27,6 +27,11 @@ input {
   background-color: transparent;
   color: #f0f0f0;
 
+
+}
+
+input:focus {
+  outline: none;
 }
 input[disabled] {
   border: 0;
@@ -43,25 +48,27 @@ input[disabled] {
   height: 300px;
   width: 600px;
   position: relative;
+  margin-left: 220px;
 }
-.py input {
-  width: 50px;
-}
+
 .py-a {
   position: absolute;
   top: 130px;
   left: 60px;
+  width: 50px;
 }
 .py-b {
   position: absolute;
   top: 240px;
   left: 250px;
+  width: 50px;
 }
 .py-c {
   position: absolute;
-  left: 300px;
+  left: 320px;
   top: 80px;
   width: 200px;
+  text-align: left;
 }
 .circum {
   position: relative;
@@ -92,9 +99,10 @@ input[disabled] {
 .temp-f,
 .temp-c {
   width: 100px;
-  font-family: helvetica, sans-serif;
-  font-weight: normal;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
   margin: 10px;
+
 }
 .temp {
   padding-left: 170px;
