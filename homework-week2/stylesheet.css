@@ -84,6 +84,7 @@ hr {
   top: 80px;
   width: 200px;
   text-align: left;
+  font-style: normal;
 }
 .circum {
   position: relative;
@@ -111,6 +112,7 @@ hr {
   left: 320px;
   width: 180px;
   text-align: left;
+  font-style: normal;
 }
 .temp-f,
 .temp-c {
