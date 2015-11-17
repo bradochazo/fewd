@@ -42,36 +42,64 @@
 
 
 
-    function calcFahrenheitToCelcius() {
+/*    function calcFahrenheitToCelcius() {
       var detected = tempF.value - 32;
       var tempC = detected * .556;
 
       return Math.round(tempC);
 
     }
+*/
 
+    function calcFahrenheitToCelcius(tempF){
+      var tempC = (tempF - 32) * .556;
+
+      return Math.round(tempC);
+    }
+
+/*
     function calcCelciusToFarenheit() {
       var detected = tempC.value * 1.8;
       var tempF = detected + 32;
 
       return tempF;
+    }
+*/
+    function calcCelciusToFarenheit(tempC){
+      var tempF = (tempC * 1.8) + 32;
 
+      return Math.round(tempF);
     }
 
+/*
     function calcCircumference() {
       var pi = 3.14;
       var pies = 2 * pi;
       var c = pies * r.value;
 
       return c;
-
     }
+    */
 
+    function calcCircumference(r) {
+      var c = (2 * 3.14) * r;
+
+      return c;
+    }
+/*
     function calcLongestSide() {
       var firstPart = pyA.value * pyA.value;
       var secondPart = pyB.value * pyB.value;
       var thirdPart = firstPart + secondPart;
       var pyC= Math.sqrt(thirdPart);
+
+      return pyC;
+
+
+    }
+*/
+    function calcLongestSide(pyA, pyB) {
+      var pyC = Math.sqrt((pyA * pyA) + (pyB * pyB));
 
       return pyC;
 
