@@ -35,6 +35,7 @@ input {
   border-left: none;
   background-color: transparent;
   color: #f0f0f0;
+  border-color: #3399ff;
 
 
 }
@@ -49,6 +50,7 @@ input[disabled] {
 hr {
   margin: 0px auto 50px; auto;
   width: 900px;
+  border-color: rgba(180, 180, 180, 1);
 
 }
 .panel {
