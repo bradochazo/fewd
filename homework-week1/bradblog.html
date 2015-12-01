@@ -106,7 +106,7 @@
       var form = document.querySelector("#new-comment");
 
       link.addEventListener("click", like);
-      link.addEventListener("submit", comment);
+      form.addEventListener("submit", comment);
 
       function like(event) {
         event.preventDefault();
@@ -133,16 +133,28 @@
         numberLike.value++;
         */
         // Your code for like goes here
-      
+
 
       function comment(event) {
         event.preventDefault();
 
-        var commentParent = document.querySelector(".comments");
-        var enteredText = document.getElementById("#new-comment-body");
-        var commentVisible = document.createElement(".comment");
-        commentVisible.textContent = enteredText;
-        commentParent.appendChild(commentVisible);
+var parent = document.querySelector("#comments");
+var input = document.querySelector("#new-comment-body");
+var newCommentText = input.value;
+var newComment = document.createElement("div");
+newComment.classList.add("comment");
+newComment.textContent = newCommentText;
+parent.appendChild(newComment);
+document.querySelector("#new-comment-body").value=null;
+
+
+/*        var parent = document.querySelector("#comments");
+        var commentText = document.querySelector("#new-comment-body");
+        var newComment = document.createElement("comment");
+        newComment.textContent = commentText;
+        parent.appendChild(newComment);
+*/
+
 
 
 
