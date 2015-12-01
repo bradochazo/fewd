@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)http://avandamiri.com/fewd-37/week-4/homework/blog.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Blog</title>
 
@@ -84,7 +83,7 @@
       </article>
 
       <div class="like">
-        <a href="http://avandamiri.com/fewd-37/week-4/homework/blog.html#" class="like-link">Like</a>
+        <a href="#" class="like-link">Like</a>
         (<span class="like-count">0</span>)
       </div>
 
@@ -111,9 +110,9 @@
 
       function like(event) {
         event.preventDefault();
-        var value = currentCounter.textContent;
           var currentCounter = document.querySelector(".like-count");
-          currentCounter.textContent = parseInt(value)+1;
+          var value = currentCounter.textContent;
+          currentCounter.textContent = parseInt(value) + 1;
 
 
         }
@@ -134,7 +133,7 @@
         numberLike.value++;
         */
         // Your code for like goes here
-      }
+      
 
       function comment(event) {
         event.preventDefault();
@@ -153,4 +152,5 @@
     </script>
 
 
-</body></html>
+</body>
+</html>
