@@ -1,0 +1,91 @@
+<table>
+  <tr>
+    <td>
+      <input type="text" class="first-operand placeholder" placeholder="Operand 1">
+    </td>
+    <td>
+      <input type="text" class="second-operand placeholder" placeholder="Operand 2">
+    </td>
+    <td>
+      =
+    </td>
+    <td>
+      <input type="text" class="result placeholder" placeholder="Result" disabled>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button class="add-button inverted-button">+</button>
+    </td>
+    <td>
+      <button class="subtract-button inverted-button">-</button>
+    </td>
+    <td>
+      <button class="multiply-button inverted-button">*</button>
+    </td>
+    <td>
+      <button class="divide-button inverted-button">/</button>
+    </td>
+  </tr>
+</table>
+
+<script>
+
+var o1 = document.querySelector(".first-operand");
+var o2 = document.querySelector(".second-operand");
+var result = document.querySelector(".result");
+
+var addbtn = document.querySelector(".add-button");
+var subbtn = document.querySelector(".subtract-button");
+var multbtn = document.querySelector(".multiply-button");
+var dividebtn = document.querySelector(".divide-button");
+
+addbtn.addEventListener("click", add);
+subbtn.addEventListener("click", subtract);
+multbtn.addEventListener("click", multiply);
+dividebtn.addEventListener("click", divide);
+
+
+
+function add(event) {
+  event.preventDefault();
+  var operand1 = parseInt(o1.value);
+  var operand2 = parseInt(o2.value);
+  result.value = operand1 + operand2;
+}
+
+function subtract(event) {
+  event.preventDefault();
+  var operand1 = parseInt(o1.value);
+  var operand2 = parseInt(o2.value);
+  result.value = operand1 - operand2;
+}
+
+function multiply(event) {
+  event.preventDefault();
+  var operand1 = parseInt(o1.value);
+  var operand2 = parseInt(o2.value);
+  result.value = operand1 * operand2;
+}
+
+function divide(event) {
+  event.preventDefault();
+  var operand1 = parseInt(o1.value);
+  var operand2 = parseInt(o2.value);
+  result.value = operand1 / operand2;
+}
+
+
+
+</script>
+
+<style>
+* { box-sizing: border-box; }
+body { font-size: 20px; font-family: sans-serif; }
+
+td { width: 100px; text-align: center; }
+.placeholder, button { width: 100%; }
+.placeholder { height: 23px; border: 1px solid #bababa; border-radius: 3px; }
+button { cursor: pointer; border: 1px solid #58c0f5; color: #58c0f5; background-color: white; font: inherit; }
+button { background-color: #58c0f5; color: white; border-radius: 3px; }
+</style>
