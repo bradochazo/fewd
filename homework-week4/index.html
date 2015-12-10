@@ -94,6 +94,7 @@ var stopClick = document.querySelector(".stopBtn");
 var slowClick = document.querySelector(".slowBtn");
 var goClick = document.querySelector(".goBtn");
 var cautionClick = document.querySelector(".cautionBtn");
+var flash;
 
 stopClick.addEventListener("click", turnRed);
 slowClick.addEventListener("click", turnYellow);
@@ -108,6 +109,8 @@ function turnRed(event){
   yellowLight.classList.remove("slow");
   var greenLight = document.querySelector(".goChild");
   greenLight.classList.remove("go");
+  window.clearInterval(flash);
+
 }
 
 function turnYellow(event){
@@ -118,6 +121,8 @@ function turnYellow(event){
   redLight.classList.remove("stop");
   var greenLight = document.querySelector(".goChild");
   greenLight.classList.remove("go");
+  window.clearInterval(flash);
+
 }
 
 function turnGreen(event){
@@ -129,13 +134,19 @@ function turnGreen(event){
   var redLight = document.querySelector(".stopChild");
   redLight.classList.remove("stop");
 
-  stopFuckingFlashing();
+  window.clearInterval(flash);
 
   }
 
 
   function turnCaution(){
-    var cautionFlasher = setInterval(function() {toggleYellow()}, 1000);
+    flash = setInterval(function() {toggleYellow()}, 1000);
+    var yellowLight = document.querySelector(".slowChild");
+    yellowLight.classList.remove("slow");
+    var redLight = document.querySelector(".stopChild");
+    redLight.classList.remove("stop");
+    var greenLight = document.querySelector(".goChild");
+    greenLight.classList.remove("go");
   }
 
   function toggleYellow() {
@@ -144,9 +155,7 @@ function turnGreen(event){
 
   }
 
-function stopFuckingFlashing(){
-  clearInterval(turnCaution());
-}
+
 
     // clearInterval(turnCaution());
 
