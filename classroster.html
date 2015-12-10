@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <p>
+  There are <span id="count">0</span> students in the class:
+</p>
+
+<ol>
+</ol>
+
+<script>
+var students = [
+  "Allison",
+  "Amanda",
+  "Angela",
+  "Bora",
+  "Brad",
+  "Cack",
+  "David",
+  "David",
+  "Denise",
+  "Diana",
+  "Emily",
+  "Eric",
+  "Fernando",
+  "Gina",
+  "Guillermo",
+  "Jake",
+  "JC",
+  "Jessica",
+  "Kathryn",
+  "Kuulei",
+  "Laci",
+  "Lila",
+  "Lindsey",
+  "Madison",
+  "Megan",
+  "My",
+  "Nicholas",
+  "Oleg",
+  "Pegah",
+  "Ryan",
+  "Serge",
+  "Yiqian"
+];
+
+// 1. Add each student to the main <ol>
+// 2. Change the 0 to reflect the number of students in the array
+
+
+for (var i = 0; i < students.length; i++) {
+  updateSpan(), createListItem(i);
+}
+
+function  createListItem() {
+  var orderedList = document.querySelector("ol");
+  var listItem = document.createElement("li");
+  listItem.textContent = students[i];
+  orderedList.appendChild(listItem);
+}
+
+function updateSpan() {
+  var spanName = document.querySelector("#count");
+  spanName.textContent = i+1;
+}
+
+</script>
+
+  </body>
+</html>

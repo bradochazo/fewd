@@ -30,6 +30,7 @@
         height: 146px;
         width: 146px;
         background-color: rgba(255, 0, 0, 1);
+        transition: background-color 300ms, box-shadow 300ms;
         border-radius: 50%;
         box-shadow: 0px 0px 15px 5px rgba(255, 0, 0, 1);
 
@@ -39,6 +40,7 @@
         height: 146px;
         width: 146px;
         background-color: rgba(255, 255, 0, 1);
+        transition: background-color 300ms, box-shadow 300ms;
         border-radius: 50%;
         box-shadow: 0px 0px 15px 5px rgba(255, 255, 0, 1);
 
@@ -48,6 +50,7 @@
         height: 146px;
         width: 146px;
         background-color: rgba(0, 255, 20, 1);
+        transition: background-color 300ms, box-shadow 300ms;
         border-radius: 50%;
         box-shadow: 0px 0px 15px 5px rgba(0, 255, 20, 1);
 
@@ -125,18 +128,39 @@ function turnGreen(event){
   yellowLight.classList.remove("slow");
   var redLight = document.querySelector(".stopChild");
   redLight.classList.remove("stop");
-  function turnCaution(){
-    event.preventDefault();
-    clearInterval(toggleYellow, 1000);
-    function toggleYellow(){
-      var yellowLight = document.querySelector(".slowChild");
-      yellowLight.classList.toggle("slow");
-    }
+
+  stopFuckingFlashing();
+
   }
 
+
+  function turnCaution(){
+    var cautionFlasher = setInterval(function() {toggleYellow()}, 1000);
+  }
+
+  function toggleYellow() {
+    var yellowLight = document.querySelector(".slowChild");
+    yellowLight.classList.toggle("slow");
+
+  }
+
+function stopFuckingFlashing(){
+  clearInterval(turnCaution());
 }
 
+    // clearInterval(turnCaution());
 
+
+
+
+
+
+
+
+
+
+
+/*
 function turnCaution(event){
   event.preventDefault();
   setInterval(toggleYellow, 1000);
@@ -145,7 +169,7 @@ function turnCaution(event){
     yellowLight.classList.toggle("slow");
   }
 }
-
+*/
 
 </script>
 
