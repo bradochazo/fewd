@@ -86,14 +86,20 @@ button {
     lastRow.appendChild(addNewRow);
 
     var rows = document.querySelectorAll("tr:first-child td");
+    var counter = document.querySelectorAll("tr").length;
 
+
+    var newRowNumber = counter;
 
     for (var i = 0; i < rows.length; i++) {
       var newCell = document.createElement("td");
 
+
       var addedRow = document.querySelector("tr:last-child")
       newCell.setAttribute("contenteditable", "true");
       addedRow.appendChild(newCell);
+      var firstCell = document.querySelector("tr:last-child td");
+      firstCell.textContent = newRowNumber;
     }
 
   }
