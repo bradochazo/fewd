@@ -1,0 +1,102 @@
+<style>
+body {
+  font-family: sans-serif;
+  margin: 2em 4em;
+}
+table {
+  margin-bottom: 1em;
+}
+td {
+  border: 1px solid #ccc;
+  padding: 1em;
+}
+button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-width: 2px;
+  border-radius: 5px; font-size: inherit;
+  color: white;
+  background-color: #049cd8;
+  padding: .5em 1em;
+  cursor: pointer;
+}
+</style>
+
+<h1>Spreadsheet</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td contenteditable>Avand</td>
+      <td contenteditable>Instructor</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td contenteditable>Sandi</td>
+      <td contenteditable>TA</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td contenteditable>Yana</td>
+      <td contenteditable>Student</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td contenteditable>Maks</td>
+      <td contenteditable>Student</td>
+    </tr>
+  </tbody>
+</table>
+
+<button id="add-row">Add a Row</button>
+<button id="add-column">Add a Column</button>
+
+<script>
+
+
+
+  var numberOfColumns = document.querySelectorAll("tr:first-child td");
+
+
+  var addRow = document.querySelector("#add-row");
+  var addColumn = document.querySelector("#add-column");
+
+  addRow.addEventListener("click", newRow);
+  addColumn.addEventListener("click", newColumn);
+
+  function newColumn(event){
+    event.preventDefault();
+    var columns = document.querySelectorAll("tr");
+
+  for (var i = 0; i < columns.length; i++) {
+
+    // debugger
+    var newCell = document.createElement("td");
+    newCell.setAttribute("contenteditable", "true");
+    columns[i].appendChild(newCell);
+  }
+
+  }
+
+  function newRow(event) {
+    event.preventDefault;
+    var addNewRow = document.createElement("tr");
+
+    var lastRow = document.querySelector("tbody");
+    lastRow.appendChild(addNewRow);
+
+    var rows = document.querySelectorAll("tr:first-child td");
+
+
+    for (var i = 0; i < rows.length; i++) {
+      var newCell = document.createElement("td");
+
+      var addedRow = document.querySelector("tr:last-child")
+      newCell.setAttribute("contenteditable", "true");
+      addedRow.appendChild(newCell);
+    }
+
+  }
+
+  // document.querySelectorAll("tr:last-child td") - gives you the number of columns
+</script>
