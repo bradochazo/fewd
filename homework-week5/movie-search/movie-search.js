@@ -18,6 +18,11 @@ function formSubmitted(event) {
   event.preventDefault();
   var url = "http://omdbapi.com/?s=" + $("#query").val();
   $.get(url, resultsReceived);
+  var existingList = document.querySelectorAll("li");
+  for (var i = 0; i < existingList.length; i++) {
+    existingList[i].classList.add("hidden");
+  }
+  form.reset();
 }
 function resultsReceived(results) {
 

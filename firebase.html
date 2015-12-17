@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+
+
+    <title>Firebase Trial</title>
+  </head>
+  <body>
+
+
+
+    <script>
+    var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
+
+    firebase.push({
+      username: "Brad",
+      messageBody: "Word to your mother."
+    });
+
+    firebase.on('child_added', function (snapshot) {
+      var data = snapshot.val();
+      console.log(data);
+    })
+
+
+Creating Chat Messages
+    add a form
+    listen to the form submit (addEventListener)
+    when form is submitted, push to firebase (firebase.push({...}))
+    when form is submitted, preventDefault (just include that with the event listener)
+    reset the form
+    focus the text box
+
+
+
+Display Chat Messages
+    1. subscribe to Firebase "child_added" event
+    2. when a child is added, call the function to display the chat
+      firebase.on('child_added', function (snapshot){
+        //looks like {messageBody: "yo yo yo", username: "avand" }
+        var message = snapshot.val();
+      })
+    3. create a div or li to contain the message
+    4. use the message body from firebase to set the text.content of the chat
+      var message = {
+        messageBody: "yo yo yo",
+        username: "avand"
+      }
+
+      var message = snapshot.val();
+
+      var messageItem = document.createElement("li");
+      messageItem.textContent = message.messageBody;
+
+    5. append the child
+    6. add the timestamp optional
+
+
+    </script>
+  </body>
+</html>
