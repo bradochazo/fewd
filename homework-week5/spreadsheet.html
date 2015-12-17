@@ -89,7 +89,6 @@ button {
     var counter = document.querySelectorAll("tr").length;
 
 
-    var newRowNumber = counter;
 
     for (var i = 0; i < rows.length; i++) {
       var newCell = document.createElement("td");
@@ -99,7 +98,7 @@ button {
       newCell.setAttribute("contenteditable", "true");
       addedRow.appendChild(newCell);
       var firstCell = document.querySelector("tr:last-child td");
-      firstCell.textContent = newRowNumber;
+      firstCell.textContent = counter;
     }
 
   }
