@@ -84,6 +84,13 @@
     username = prompt("what is your username?");
     localStorage.setItem("username", username);
   }
+
+  var form = document.querySelector("#text-area");
+  form.addEventListener("submit", addItem);
+
+  function addItem(event) {
+    event.preventDefault();
+  }
 </script>
   </body>
 </html>
