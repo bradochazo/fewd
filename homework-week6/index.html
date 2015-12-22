@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chatteranga</title>
+    <!-- <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="http://f.cl.ly/items/2K2Z2g0L3v1q1I413j1O/strftime%20githubcomsamsonjsstrf.txt"></script> -->
+    <style media="screen">
+
+      body {
+        background-color: rgba(195, 231, 240, 1);
+        margin: 0px;
+        font-family: helvetica,sans-serif;
+      }
+      .text-area {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        background-color: rgba(60, 60, 60, 1);
+        display: inline-flex;
+        height: 75px;
+      }
+      .text-input {
+        width: 85%;
+        margin: 15px;
+      }
+      .message {
+        width: 100%;
+        height: 30px;
+        font-size: 18px;
+        padding: 5px;
+      }
+      .send-button {
+        width: 15%;
+        margin: 15px;
+      }
+      .send {
+        width: 100%;
+        height: 45px;
+        border-radius: 7px;
+        background-color: rgba(255, 0, 0, 1);
+        border: 1px solid rgba(0, 255, 0, 1);;
+        font-size: 1.4em;
+        font-weight: 600;
+        color: white;
+      }
+      .empty {
+        width: 100%;
+        font-weight: 600;
+        color: rgba(150, 150, 150, 0.5);
+        text-align: center;
+        font-size: 2.75em;
+        margin-top: 120px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <main>
+      <ul class="chats">
+      </ul>
+    </main>
+    <div class="empty">
+      <p>
+        -You Have No Messages-
+      </p>
+    </div>
+    <div class="text-area">
+      <div class="text-input">
+        <input type="text" class="message" placeholder="Enter message">
+      </div>
+      <div class="send-button">
+        <button class="send">Send</button>
+      </div>
+    </div>
+
+
+<script type="text/javascript">
+  var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
+
+
+  var username = localStorage.getItem("username");
+  if (username == null) {
+    username = prompt("what is your username?");
+    localStorage.setItem("username", username);
+  }
+</script>
+  </body>
+</html>
