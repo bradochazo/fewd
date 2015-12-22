@@ -12,7 +12,7 @@
         margin: 0px;
         font-family: helvetica,sans-serif;
       }
-      .text-area {
+      #text-area {
         position: absolute;
         bottom: 0px;
         width: 100%;
@@ -65,18 +65,18 @@
         -You Have No Messages-
       </p>
     </div>
-    <div class="text-area">
+    <form id="text-area">
       <div class="text-input">
         <input type="text" class="message" placeholder="Enter message">
       </div>
       <div class="send-button">
         <button class="send">Send</button>
       </div>
-    </div>
+    </form>
 
 
 <script type="text/javascript">
-  var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
+  // var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
 
 
   var username = localStorage.getItem("username");
