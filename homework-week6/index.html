@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Chatteranga</title>
-    <!-- <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-    <script src="http://f.cl.ly/items/2K2Z2g0L3v1q1I413j1O/strftime%20githubcomsamsonjsstrf.txt"></script> -->
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="http://f.cl.ly/items/2K2Z2g0L3v1q1I413j1O/strftime%20githubcomsamsonjsstrf.txt"></script>
     <style media="screen">
 
       body {
@@ -13,7 +13,7 @@
         font-family: helvetica,sans-serif;
       }
       #text-area {
-        position: absolute;
+        position: fixed;
         bottom: 0px;
         width: 100%;
         background-color: rgba(60, 60, 60, 1);
@@ -24,7 +24,7 @@
         width: 85%;
         margin: 15px;
       }
-      .message {
+      #message {
         width: 100%;
         height: 30px;
         font-size: 18px;
@@ -52,6 +52,9 @@
         font-size: 2.75em;
         margin-top: 120px;
       }
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -67,7 +70,7 @@
     </div>
     <form id="text-area">
       <div class="text-input">
-        <input type="text" class="message" placeholder="Enter message">
+        <input type="text" id="message" placeholder="Enter message">
       </div>
       <div class="send-button">
         <button class="send">Send</button>
@@ -76,21 +79,48 @@
 
 
 <script type="text/javascript">
-  // var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
+  var firebase = new Firebase("https://blinding-inferno-7422.firebaseio.com");
 
 
-  var username = localStorage.getItem("username");
-  if (username == null) {
-    username = prompt("what is your username?");
-    localStorage.setItem("username", username);
-  }
+  var mainList = document.querySelector(".chats");
+  var emptyDiv = document.querySelector(".empty");
 
   var form = document.querySelector("#text-area");
-  form.addEventListener("submit", addItem);
+  form.addEventListener("submit", createItem);
 
-  function addItem(event) {
+  function createItem(event) {
     event.preventDefault();
+    var username = localStorage.getItem("username");
+    if (username == null) {
+      username = prompt("What is your username?");
+      localStorage.setItem("username", username);
+    }
+
+    var message = {
+    username: username,
+    messageBody: document.querySelector("#message").value,
+    createdAt: (new Date()).getTime()
+    }
+
+    firebase.push(message);
+
+    firebase.on("child_added", createMessageFromFirebase);
+
+    function createMessageFromFirebase(snapshot) {
+  // The snapshot gives you access to the message data
+  // messageData holds the username and body of the each message in the database
+    var messageData = snapshot.val();
+    var messageEl = document.createElement("li");
+    messageEl.textContent = messageData.messageBody;
+    mainList.appendChild(messageEl);
+    form.reset()
+    emptyDiv.classList.add("hidden");
+
+
   }
+  }
+
+
 </script>
   </body>
 </html>
