@@ -22,7 +22,7 @@
         margin: auto;
         margin-bottom: 35px;
         background-color: white;
-        border-radius: 15px;
+        border-radius: 7px;
         padding: 15px;
         padding-left: 25px;
         color: rgba(75, 75, 75, 1);
@@ -177,43 +177,44 @@
     }
 
     firebase.push(message);
+}
 
     firebase.on("child_added", createMessageFromFirebase);
 
     function createMessageFromFirebase(snapshot) {
   // The snapshot gives you access to the message data
   // messageData holds the username and body of the each message in the database
-    var messageData = snapshot.val();
+      var messageData = snapshot.val();
 
-    var userName = document.createElement("div");
-    userName.classList.add("usename");
-    userName.textContent = messageData.username;
-    mainList.appendChild(userName);
+      var userName = document.createElement("div");
+      userName.classList.add("usename");
+      userName.textContent = messageData.username;
+      mainList.appendChild(userName);
 
-    var messageEl = document.createElement("div");
-    messageEl.classList.add("indi-chat");
-    messageEl.textContent = messageData.messageBody;
-    mainList.appendChild(messageEl);
-    form.reset()
-    emptyDiv.classList.add("hidden");
-
-
-
-    var now = new Date();
-    now.getTime();
-    var createdAt = new Date(messageData.createdAt);
-    var dateElement = document.createElement("div");
-    dateElement.classList.add("time-stamp");
-    dateElement.textContent = strftime('%a %l:%M %P', createdAt);
-    messageEl.appendChild(dateElement);
-
-    scrollToBottom();
-  }
+      var messageEl = document.createElement("div");
+      messageEl.classList.add("indi-chat");
+      messageEl.textContent = messageData.messageBody;
+      mainList.appendChild(messageEl);
+      form.reset()
+      emptyDiv.classList.add("hidden");
 
 
 
+      var now = new Date();
+      now.getTime();
+      var createdAt = new Date(messageData.createdAt);
+      var dateElement = document.createElement("div");
+      dateElement.classList.add("time-stamp");
+      dateElement.textContent = strftime('%a %l:%M %P', createdAt);
+      messageEl.appendChild(dateElement);
 
-  }
+      scrollToBottom();
+    }
+
+
+
+
+
   function scrollToBottom(){
     window.scrollTo(0,document.body.scrollHeight);
 
