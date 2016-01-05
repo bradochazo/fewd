@@ -65,7 +65,7 @@
         position: fixed;
         bottom: 0px;
         width: 100%;
-        background-color: rgba(60, 60, 60, 1);
+        background-color: rgba(50, 50, 50, .85);
         display: inline-flex;
         height: 75px;
       }
@@ -206,12 +206,18 @@
     dateElement.classList.add("time-stamp");
     dateElement.textContent = strftime('%a %l:%M %P', createdAt);
     messageEl.appendChild(dateElement);
+
+    scrollToBottom();
   }
 
+
+
+
+  }
+  function scrollToBottom(){
     window.scrollTo(0,document.body.scrollHeight);
 
   }
-
 
 </script>
   </body>
