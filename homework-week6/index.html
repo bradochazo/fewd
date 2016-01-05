@@ -11,16 +11,55 @@
         background-color: rgba(195, 231, 240, 1);
         margin: 0px;
         font-family: helvetica,sans-serif;
+        padding-top: 20px;
       }
       .chats {
         padding-bottom: 100px;
       }
-      .chats li {
-        text-decoration: none;
-        margin-bottom: 60px;
+      .indi-chat {
+        /*margin-right: 50px;*/
+        width: 90%;
+        margin: auto;
+        margin-bottom: 35px;
         background-color: white;
         border-radius: 15px;
         padding: 15px;
+        padding-left: 25px;
+        color: rgba(75, 75, 75, 1);
+        position: relative;
+
+      }
+      .indi-chat::after {
+        content: " ";
+        width: 0px;
+        height: 0px;
+        border: 15px solid ;
+        border-top-color: white;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        /*border-left-width: 0px;*/
+        bottom: -30px;
+        left: 25px;
+        position: absolute;
+
+      }
+      .usename {
+        margin-left: 5%;
+        margin-bottom: 3px;
+        color: rgba(0, 52, 99, 1);
+        font-size:16px;
+        font-weight: 600;
+        display: block;
+      }
+      .time-stamp{
+        font-weight: 100;
+        position: absolute;
+        right: 2.5%;
+        /*margin-bottom: 35px;*/
+        padding-top: 20px;
+        color: rgba(0, 52, 99, 1);
+
       }
       #text-area {
         position: fixed;
@@ -65,18 +104,35 @@
       .hidden {
         display: none;
       }
+      /*.triangle {
+        background-color: black;
+        width: 0px;
+        height: 0px;
+        border: 100px solid yellow;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: orange;
+        border-left-color: transparent;
+        border-right-width: 40px;
+        transition: background-color 300ms;
+      }*/
     </style>
   </head>
   <body>
 
     <main>
-      <ul class="chats">
-        <li>example</li>
-      </ul>
+      <div class="chats">
+        <!-- <div class="indi-chat">example</div>
+        <div class="usename">Brad</div>
+        <div class="time-stamp">Friday, 2:44 pm</div>
+        <div class="indi-chat">example</div>
+        <div class="usename">Brad</div> -->
+
+      </div>
     </main>
     <div class="empty">
       <p>
-        -You Have No Messages-
+        —You Have No Messages—
       </p>
     </div>
     <form id="text-area">
@@ -95,6 +151,9 @@
 
   var mainList = document.querySelector(".chats");
   var emptyDiv = document.querySelector(".empty");
+
+  var messageEl;
+  var dateElement;
 
   var form = document.querySelector("#text-area");
   form.addEventListener("submit", createItem);
@@ -121,14 +180,32 @@
   // The snapshot gives you access to the message data
   // messageData holds the username and body of the each message in the database
     var messageData = snapshot.val();
-    var messageEl = document.createElement("li");
+
+    var userName = document.createElement("div");
+    userName.classList.add("usename");
+    userName.textContent = messageData.username;
+    mainList.appendChild(userName);
+
+    var messageEl = document.createElement("div");
+    messageEl.classList.add("indi-chat");
     messageEl.textContent = messageData.messageBody;
     mainList.appendChild(messageEl);
     form.reset()
     emptyDiv.classList.add("hidden");
 
 
+
+    var now = new Date();
+    now.getTime();
+    var createdAt = new Date(messageData.createdAt);
+    var dateElement = document.createElement("div");
+    dateElement.classList.add("time-stamp");
+    dateElement.textContent = strftime('%a %l:%M %P', createdAt);
+    messageEl.appendChild(dateElement);
   }
+
+    window.scrollTo(0,document.body.scrollHeight);
+
   }
 
 
