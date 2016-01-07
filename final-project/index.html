@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="jquery.lettering-0.6.1.min.js">
+
+    </script>
+
+    <style media="screen">
+      .word_split span:hover {
+        color: red;
+      }
+      .tooltip {
+      	display:none;
+      	position:absolute;
+      	border:1px solid #333;
+      	background-color:#161616;
+      	border-radius:5px;
+      	padding:10px;
+      	color:#fff;
+      	font-size:12px Arial;
+      }
+    </style>
+  </head>
+  <body>
+
+    <form  action="index.html" method="post">
+      <button type="submit" name="button"id="clicky">Do the thing</button>
+    </form>
+
+    <p class="word_split">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+    <div id="displayWord">
+      <p>
+
+      </p>
+    </div>
+
+    <script>
+
+
+
+      $(".word_split").lettering('words');
+      var $sepWords = $("span");
+      $sepWords.addClass("tags");
+
+      $('.tags').mouseover(function() {
+        var spanText = $(this).text();
+         showText(spanText);
+      });
+
+      function showText(spanText){
+        $("#displayWord").text(spanText);
+      }
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
