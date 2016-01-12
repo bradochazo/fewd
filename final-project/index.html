@@ -9,9 +9,9 @@
     </script>
 
     <style media="screen">
-      .word_split span:hover {
+      /*.word_split span:hover {
         color: red;
-      }
+      }*/
       .tooltip {
       	display:none;
       	position:absolute;
@@ -43,37 +43,25 @@
     <script>
 
 
-      $(this).click(function() {
-
+      $("body").mouseover(function() {
           var $hoveredElement = $(event.target);
           $hoveredElement.addClass("word_split");
-          $(".word_split").lettering('words');
-          var $sepWords = $("span");
-          $sepWords.addClass("tags");
-          $('.tags').click(function() {
-            var spanText = $(this).text();
-             showText(spanText);
-          });
-
-          function showText(spanText){
-            $("#displayWord").text(spanText);
-          };
 
       });
 
-      // $(this).click(function() {
-      //   $(".word_split").lettering('words');
-      //   var $sepWords = $("span");
-      //   $sepWords.addClass("tags");
-      //   $('.tags').click(function() {
-      //     var spanText = $(this).text();
-      //      showText(spanText);
-      //   });
-      //
-      //   function showText(spanText){
-      //     $("#displayWord").text(spanText);
-      //   };
-      // });
+      $(this).mouseover(function() {
+        $(".word_split").lettering('words');
+        var $sepWords = $("span");
+        $sepWords.addClass("tags");
+        $('.tags').mouseover(function() {
+          var spanText = $(this).text();
+           showText(spanText);
+        });
+
+        function showText(spanText){
+          $("#displayWord").text(spanText);
+        };
+      });
 
 
 
