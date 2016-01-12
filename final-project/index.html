@@ -26,11 +26,11 @@
   </head>
   <body>
 
-    <form  action="index.html" method="post">
+    <!-- <form  action="index.html" method="post">
       <button type="submit" name="button"id="clicky">Do the thing</button>
-    </form>
+    </form> -->
 
-    <p class="word_split">
+    <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
 
@@ -43,19 +43,41 @@
     <script>
 
 
+      $(this).click(function() {
 
-      $(".word_split").lettering('words');
-      var $sepWords = $("span");
-      $sepWords.addClass("tags");
+          var $hoveredElement = $(event.target);
+          $hoveredElement.addClass("word_split");
+          $(".word_split").lettering('words');
+          var $sepWords = $("span");
+          $sepWords.addClass("tags");
+          $('.tags').click(function() {
+            var spanText = $(this).text();
+             showText(spanText);
+          });
 
-      $('.tags').mouseover(function() {
-        var spanText = $(this).text();
-         showText(spanText);
+          function showText(spanText){
+            $("#displayWord").text(spanText);
+          };
+
       });
 
-      function showText(spanText){
-        $("#displayWord").text(spanText);
-      }
+      // $(this).click(function() {
+      //   $(".word_split").lettering('words');
+      //   var $sepWords = $("span");
+      //   $sepWords.addClass("tags");
+      //   $('.tags').click(function() {
+      //     var spanText = $(this).text();
+      //      showText(spanText);
+      //   });
+      //
+      //   function showText(spanText){
+      //     $("#displayWord").text(spanText);
+      //   };
+      // });
+
+
+
+
 
 
 
