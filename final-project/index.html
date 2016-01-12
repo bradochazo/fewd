@@ -33,10 +33,12 @@
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-    
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
+    <div id="sourceText">lavoro</div>
+    <div id="translation"></div>
 
     <div id="displayWord">
       <p>
@@ -56,6 +58,8 @@
     // });
     // var $whereMouse = $(event.target);
 
+var spanText;
+
     $("body").mouseover(function() {
         var $hoveredElement = $(event.target);
         if ($hoveredElement.prop('tagName') !== "BODY") {
@@ -68,8 +72,8 @@
       var $sepWords = $("span");
       $sepWords.addClass("tags");
       $('.tags').mouseover(function() {
-        var spanText = $(this).text();
-         showText(spanText);
+        spanText = $(this).text();
+        showText(spanText);
       });
 
       function showText(spanText){
@@ -78,9 +82,23 @@
     });
 
 
+      function translateText(response) {
+        document.getElementById("translation").innerHTML += "<br>" + response.data.translations[0].translatedText;
+      }
 
+      var newScript = document.createElement('script');
+      newScript.type = 'text/javascript';
+      var sourceText = escape(document.getElementById("sourceText").innerHTML);
+      var var1 = "it";
+      var var2 = "en";
+      // WARNING: be aware that YOUR-API-KEY inside html is viewable by all your users.
+      // Restrict your key to designated domains or use a proxy to hide your key
+      // to avoid misusage by other party.
+      var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + var1 + '&target=' + var2 + '&callback=translateText&q=' + sourceText;
+      newScript.src = source;
 
-
+      // When we add this script to the head, the request is sent off.
+      document.getElementsByTagName('head')[0].appendChild(newScript);
 
 
 
