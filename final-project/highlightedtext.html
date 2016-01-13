@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+    <script>
+
+    var $toTranslate;
+    var $hoveredElement;
+    // var $sourceLang = $('#sourceLangSelect option:selected').val();
+    // var $targetLang = $('#targetLangSelect option:selected').val();
+    var $sourceLang = "it";
+    var $targetLang = "en";
+    var newScript = document.createElement('script');
+
+    function getSelectedText() {
+    var text = "";
+    if (typeof window.getSelection != "undefined") {
+        text = window.getSelection().toString();
+    } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+        text = document.selection.createRange().text;
+    }
+    return text;
+    }
+
+    function doSomethingWithSelectedText() {
+    var selectedText = getSelectedText();
+    if (selectedText) {
+        console.log(selectedText);
+    }
+    }
+
+    function translateText(response) {
+      var selectedText = getSelectedText();
+      if (selectedText) {
+        $toTranslate = $hoveredElement.text();
+        var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + $sourceLang + '&target=' + $targetLang + '&callback=translateText&q=' + $toTranslate;
+        newScript.src = source;
+        document.getElementsByTagName('head')[0].appendChild(newScript);
+        document.getElementById("translation").innerHTML += response.data.translations[0].translatedText;
+
+      }
+    };
+
+    document.onmouseup = doSomethingWithSelectedText;
+    // document.onkeyup = doSomethingWithSelectedText;
+
+
+    </script>
+
+  </body>
+</html>
