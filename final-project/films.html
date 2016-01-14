@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+
+
+
+  </head>
+  <body>
+    <ul class="titles">
+
+    </ul>
+
+
+    <script>
+
+      var dataArray = [];
+
+      $.getJSON("https://data.sfgov.org/resource/wwmu-gmzc.json", function (dataArray) {
+        for (var i = 0; i < dataArray.length; i++) {
+          createListItem(dataArray[i]);
+        };
+      });
+
+      function createListItem(films){
+        var listParent = document.querySelector(".titles");
+        var listItem = document.createElement("li");
+        var link = document.createElement("a");
+        link.textContent = films.title;
+        listParent.appendChild(listItem);
+        listItem.appendChild(link);
+        listItem.classList.add("selectors");
+        console.log(films.director);
+
+      }
+    </script>
+
+
+  </body>
+</html>

@@ -6,21 +6,23 @@
   </head>
   <body>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Serata di gala che assegna il massimo riconoscimento della Fifa. Se lo aggiudica il fuoriclasse argentino, che piega la concorrenza di Cristiano Ronaldo e Neymar: "Oltre i sogni di quando ero bambino". Il premio Puskas a sorpresa va al brasiliano Lira, che piega le aspirazioni del giocatore della Roma. Premio femminile alla statunitense Lloyd, Luis Enrique miglior allenatore, Pogba nel top 11
     </p>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Serata di gala che assegna il massimo riconoscimento della Fifa. Se lo aggiudica il fuoriclasse argentino, che piega la concorrenza di Cristiano Ronaldo e Neymar: "Oltre i sogni di quando ero bambino". Il premio Puskas a sorpresa va al brasiliano Lira, che piega le aspirazioni del giocatore della Roma. Premio femminile alla statunitense Lloyd, Luis Enrique miglior allenatore, Pogba nel top 11
     </p>
+    <div id="translation">
+
+    </div>
 
     <script>
 
-    var $toTranslate;
-    var $hoveredElement;
-    // var $sourceLang = $('#sourceLangSelect option:selected').val();
-    // var $targetLang = $('#targetLangSelect option:selected').val();
+    var selectedText;
     var $sourceLang = "it";
     var $targetLang = "en";
     var newScript = document.createElement('script');
+    newScript.type = 'text/javascript';
+
 
     function getSelectedText() {
     var text = "";
@@ -32,27 +34,25 @@
     return text;
     }
 
-    function doSomethingWithSelectedText() {
-    var selectedText = getSelectedText();
-    if (selectedText) {
+    function receiveMouseUp() {
+      selectedText = getSelectedText();
+      if (selectedText) {
         console.log(selectedText);
+        translateText();
     }
     }
 
     function translateText(response) {
-      var selectedText = getSelectedText();
-      if (selectedText) {
-        $toTranslate = $hoveredElement.text();
-        var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + $sourceLang + '&target=' + $targetLang + '&callback=translateText&q=' + $toTranslate;
+        var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + $sourceLang + '&target=' + $targetLang + '&callback=translateText&q=' + selectedText;
         newScript.src = source;
+
         document.getElementsByTagName('head')[0].appendChild(newScript);
         document.getElementById("translation").innerHTML += response.data.translations[0].translatedText;
-
-      }
+        console.log(response);
     };
 
-    document.onmouseup = doSomethingWithSelectedText;
-    // document.onkeyup = doSomethingWithSelectedText;
+    document.addEventListener("mouseup", receiveMouseUp);
+
 
 
     </script>
