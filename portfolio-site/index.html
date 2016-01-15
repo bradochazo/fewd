@@ -11,17 +11,66 @@
         margin: 0px;
         height: 100%;
       }
+      .about-panel {
+        width: 50%;
+        float: left;
+      }
+      .about-panel.left-panel {
+        -webkit-animation: fadeIn .4s ease-in .3s both;
+        animation: fadeIn .4s ease-in .3s both;
+      }
+      .about-panel.left-panel img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 250px;
+        height: auto;
+        border-radius: 100%;
+      }
+      .about-panel.left-panel h1 {
+        width: 100%;
+        text-align: center;
+      }
+      .about-panel.right-panel {
+        -webkit-animation: fadeIn .4s ease-in .3s both;
+        animation: fadeIn .4s ease-in .3s both;
+      }
+      .about-panel.right-panel p:first-child {
+        width:70%;
+        margin-top: 13%;
+      }
+      @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+      }
 
+      @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+      }
+      .fader {
+        -webkit-animation: fadeIn .5s ease-in .5s both;
+        animation-duration: fadeIn .5s ease-in .5s both;
+      }
       #panel {
         height: 400px;
-        background: #745c24;
+        background: rgba(200, 200, 200, 1);
         display: none;
+        content:"";
       }
       header {
         width:100%;
         min-height: 40px;
         height: 7%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(40, 40, 40, 1);
       }
 
       header img.logo {
@@ -53,37 +102,165 @@
         width: 33.3333333%;
         height: 46.5%;
         min-height: 250px;
-        background-color: red;
-        color: lightblue;
+        color: white;
         font-family: helvetica;
         float: left;
         margin: 0px;
         text-align: center;
       }
 
-      .grid:hover{
+      /*.grid:hover{
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.3),
             rgba(0, 0, 0, 0.3)
-          ),url("images/sf.jpg");
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          margin: 0px;
-      }
-
-      .grid h1 {
-        margin-top: 25%;
-      }
-
-      .grid1 {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-          ),url("images/sf.jpg");
+          ),url("images/iava.png");
+        background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        margin: 0px;
+      }*/
+
+      /*.grid h1 {
+        background-color: rgba(0, 0, 0, 0.75);
+        display: inline-block;
+        padding: 5px;
+        margin-top: 25%;
+      }
+      .grid h2 {
+        background-color: rgba(0, 0, 0, 0.75);
+        display: inline-block;
+        padding: 5px;
+      }*/
+      .grid1 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+          ),url("images/iava.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid1:hover{
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.0)
+          ),url("images/iava.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid2 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+          ),url("images/nastad.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid2:hover {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.0)
+          ),url("images/nastad.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid3 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+          ),url("images/tomkat.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid3:hover {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.0)
+          ),url("images/tomkat.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid4 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+          ),url("images/wellversed.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid4:hover {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.0)
+          ),url("images/wellversed.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid5 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+          ),url("images/ikno.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid5:hover {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.0)
+          ),url("images/ikno.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid6 {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.1)
+          ),url("images/aclu.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        margin: 0px;
+      }
+      .grid6:hover {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.0),
+            rgba(0, 0, 0, 0.0)
+          ),url("images/aclu.png");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
         margin: 0px;
       }
       @media only screen
@@ -126,6 +303,17 @@
   <body>
 
     <div id="panel">
+      <div id="panel-content">
+        <div class="about-panel left-panel">
+          <h1>Hi there! I'm Brad.</h1>
+          <img src="images/bradmuheadshot.jpg" alt="Brad Mu Headshot"/>
+        </div>
+        <div class="about-panel right-panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>mu.brad@gmail.com</p>
+        </div>
+      </div>
+
 
     </div>
     <header>
@@ -172,7 +360,8 @@
       $(document).ready(function(){
 
       	$(".btn-slide").click(function(){
-      		$("#panel").slideToggle("medium");
+      		$("#panel").slideToggle("slow");
+          $("#panel-content").addClass("fader");
       		$(this).toggleClass("active"); return false;
       	});
 
