@@ -78,6 +78,7 @@
       var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + $sourceLang + '&target=' + $targetLang + '&callback=translateText&q=' + $toTranslate;
       newScript.src = source;
       document.getElementsByTagName('head')[0].appendChild(newScript);
+      debugger
       document.getElementById("translation").innerHTML += response.data.translations[0].translatedText;
     };
 
