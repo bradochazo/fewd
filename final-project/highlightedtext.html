@@ -3,31 +3,92 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <style media="screen">
+      #draggable {
+        width: 400px;
+        height: 120px;
+        background-color: rgba(200, 200, 200, 1);
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 1.1em;
+        font-family: helvetica;
+      }
+      .select-style {
+         width: 175px;
+         height: 34px;
+         overflow: hidden;
+         background-color: rgba(0, 0, 0, 0.3);
+         border: 1px solid #ccc;
+         margin-top: 5px;
+         font-size: 1em;
+         font-family: helvetica;
+       }
+       .translate-class {
+         margin-right: 60px;
+         font-size: 1.2em;
+         font-weight: 100;
+       }
+       #translation {
+         margin-top: 15px;
+         text-align: left;
+         font-size: 1.3em;
+         font-family: helvetica;
+         font-weight: bold;
+       }
+    </style>
+
   </head>
   <body>
-    <p>
-      Serata di gala che assegna il massimo riconoscimento della Fifa. Se lo aggiudica il fuoriclasse argentino, che piega la concorrenza di Cristiano Ronaldo e Neymar: "Oltre i sogni di quando ero bambino". Il premio Puskas a sorpresa va al brasiliano Lira, che piega le aspirazioni del giocatore della Roma. Premio femminile alla statunitense Lloyd, Luis Enrique miglior allenatore, Pogba nel top 11
-    </p>
-    <p>
-      Serata di gala che assegna il massimo riconoscimento della Fifa. Se lo aggiudica il fuoriclasse argentino, che piega la concorrenza di Cristiano Ronaldo e Neymar: "Oltre i sogni di quando ero bambino". Il premio Puskas a sorpresa va al brasiliano Lira, che piega le aspirazioni del giocatore della Roma. Premio femminile alla statunitense Lloyd, Luis Enrique miglior allenatore, Pogba nel top 11
-    </p>
-    <div id="translation">
+    <div id="draggable">
+      <span class="translate-class">Translate from</span>
+      <span class="translate-class">Translate to</span>
 
+      <select id="sourceLangSelect" class="select-style">
+        <option value="da">Danish</option>
+        <option value="nl">Dutch</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="it">Italian</option>
+        <option value="es">Spanish</option>
+      </select>
+      <span>to</span>
+      <select id="targetLangSelect" class="select-style">
+        <option value="da">Danish</option>
+        <option value="nl">Dutch</option>
+        <option value="en">English</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="it">Italian</option>
+        <option value="es">Spanish</option>
+      </select>
+      <div id="translation">
+
+      </div>
     </div>
+
+
+
+
+    <p>
+      Serata di gala che assegna il massimo riconoscimento della Fifa. Se lo aggiudica il fuoriclasse argentino, che piega la concorrenza di Cristiano Ronaldo e Neymar: "Oltre i sogni di quando ero bambino". Il premio Puskas a sorpresa va al brasiliano Lira, che piega le aspirazioni del giocatore della Roma. Premio femminile alla statunitense Lloyd, Luis Enrique miglior allenatore, Pogba nel top 11
+    </p>
+    <p>
+      Serata di gala che assegna il massimo riconoscimento della Fifa. Se lo aggiudica il fuoriclasse argentino, che piega la concorrenza di Cristiano Ronaldo e Neymar: "Oltre i sogni di quando ero bambino". Il premio Puskas a sorpresa va al brasiliano Lira, che piega le aspirazioni del giocatore della Roma. Premio femminile alla statunitense Lloyd, Luis Enrique miglior allenatore, Pogba nel top 11
+    </p>
+
 
     <script>
 
     var sourceText;
-    var $sourceLang = "it";
-    var $targetLang = "en";
-    var newScript = document.createElement('script');
-    newScript.type = 'text/javascript';
+    var e;
 
     function receiveMouseUp() {
       sourceText = getSelectedText();
       if (sourceText) {
         console.log(sourceText);
-        translateText();
+        getTranslation();
     }
     }
 
@@ -45,16 +106,40 @@
 
 
     function translateText(response) {
-
-        var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + $sourceLang + '&target=' + $targetLang + '&callback=translateText&q=' + sourceText;
-        newScript.src = source;
-        document.getElementsByTagName('head')[0].appendChild(newScript);
-        document.getElementById("translation").innerHTML += response.data.translations[0].translatedText;
+        document.getElementById("translation").textContent = response.data.translations[0].translatedText;
         console.log(response);
     };
 
+    function getTranslation() {
+      var sourceL = document.getElementById("sourceLangSelect");
+      var sourceLang = sourceL.options[sourceL.selectedIndex].value;
+      var targetL = document.getElementById("targetLangSelect");
+      var targetLang = targetL.options[targetL.selectedIndex].value;
+      var newScript = document.createElement('script');
+      newScript.type = 'text/javascript';
+      var source = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyDuXAgBhZVhF75wlVv4pprIUIbFgdzGB4Q&source=' + sourceLang + '&target=' + targetLang + '&callback=translateText&q=' + sourceText;
+      newScript.src = source;
+      document.getElementsByTagName('head')[0].appendChild(newScript);
+
+    }
+
     document.addEventListener("mouseup", receiveMouseUp);
 
+    $(function() {
+    $('body').on('mousedown', 'div', function() {
+        $(this).addClass('draggable').parents().on('mousemove', function(e) {
+            $('.draggable').offset({
+                top: e.pageY - $('.draggable').outerHeight() / 2,
+                left: e.pageX - $('.draggable').outerWidth() / 2
+            }).on('mouseup', function() {
+                $(this).removeClass('draggable');
+            });
+        });
+        // e.preventDefault();
+    }).on('mouseup', function() {
+        $('.draggable').removeClass('draggable');
+    });
+});
 
 
     </script>
