@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <style media="screen">
       #draggable {
-        width: 400px;
-        height: 120px;
+        width: 410px;
+        height: 140px;
         background-color: rgba(200, 200, 200, 1);
-        padding: 15px;
+        padding-top: 25px;
+        padding-right: 15px;
+        padding-left: 15px;
         border-radius: 5px;
         font-size: 1.1em;
         font-family: helvetica;
@@ -37,11 +41,23 @@
          font-family: helvetica;
          font-weight: bold;
        }
+       .arrow-container {
+         width: 100%;
+         float: right:
+         display: block;
+       }
+       .fa {
+         position:absolute;
+         right: 15px;
+         top: 15px;
+         font-size: 1.3em;
+       }
     </style>
 
   </head>
   <body>
-    <div id="draggable">
+    <div id="draggable" class="ui-widget-content">
+      <i class="fa fa-arrows ui-widget-header"></i>
       <span class="translate-class">Translate from</span>
       <span class="translate-class">Translate to</span>
 
@@ -126,20 +142,8 @@
     document.addEventListener("mouseup", receiveMouseUp);
 
     $(function() {
-    $('body').on('mousedown', 'div', function() {
-        $(this).addClass('draggable').parents().on('mousemove', function(e) {
-            $('.draggable').offset({
-                top: e.pageY - $('.draggable').outerHeight() / 2,
-                left: e.pageX - $('.draggable').outerWidth() / 2
-            }).on('mouseup', function() {
-                $(this).removeClass('draggable');
-            });
-        });
-        // e.preventDefault();
-    }).on('mouseup', function() {
-        $('.draggable').removeClass('draggable');
+      $( "#draggable" ).draggable({ handle: "i" });
     });
-});
 
 
     </script>
