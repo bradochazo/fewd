@@ -617,6 +617,21 @@
     </style>
   </head>
   <body>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      $(".btn-slide").click(function(){
+        $("#panel").slideToggle("medium");
+        $("#panel-content").addClass("fader");
+        $(this).toggleClass("active"); return false;
+      });
+
+
+    });
+
+
+    </script>
 
     <div id="panel">
       <div id="panel-content">
@@ -690,21 +705,7 @@
       </div>
 
 
-      <script type="text/javascript">
 
-      $(document).ready(function(){
-
-      	$(".btn-slide").click(function(){
-      		$("#panel").slideToggle("medium");
-          $("#panel-content").addClass("fader");
-      		$(this).toggleClass("active"); return false;
-      	});
-
-
-      });
-
-
-      </script>
 
     </main>
 
